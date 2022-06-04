@@ -1,0 +1,26 @@
+@foreach ($data as $key => $user)
+                            <tr>
+                                <td>{{ ++$key }}</td>
+                                <td>{{ \Carbon\Carbon::parse($user->created_at)->toFormattedDateString() }}</td>
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->email }}</td>
+                                <td>{{ $user->phone }}</td>
+                                <td>
+                                    @if(($user->getRoleNames()->count()))
+                                        @foreach($user->getRoleNames() as $v)
+                                            <label class="badge badge-success">{{ $v }}</label>
+                                        @endforeach
+                                    @else
+                                        <label class="badge badge-warning">Not Assigned</label>
+                                    @endif
+                                </td>
+                                <td>{{$user->enroll->count()}} - Course</td>
+                                <td>
+                                    <a class="btn btn-info bold uppercase btn-xs" href="{{ route('users.show',$user->id) }}"><i class="far fa-eye"></i> Show</a>
+                                    @if ($user->id !== 1)
+                                        <a class="btn btn-primary bold uppercase btn-xs" href="{{ route('users.edit',$user->id) }}"><i class="fas fa-edit"></i> Edit</a>
+                                        {{--{!! Form::button('<i class="fa fa-trash"></i> Delete', ['class' => 'btn btn-danger btn-xs bold uppercase delete_button','data-toggle'=>"modal",'data-target'=>"#DelModal",'data-id'=>$user->id]) !!}--}}
+                                    @endif
+                                </td>
+                            </tr>
+                        @endforeach
