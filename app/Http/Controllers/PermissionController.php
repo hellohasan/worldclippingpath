@@ -13,8 +13,8 @@ class PermissionController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
-        $this->middleware(['role:Super Admin']);
+        /* $this->middleware('auth');
+    $this->middleware(['role:Super Admin']); */
     }
 
     /**

@@ -82,7 +82,26 @@
     </div>
 
     @include('sweetalert::alert')
-    <script src="{{ mix('js/backend.js') }}" defer></script>
+    <script src="{{ mix('js/backend.js') }}"></script>
+    {{-- <script src="{{ asset('backend/plugins/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('backend/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('backend/dist/js/adminlte.min.js') }}"></script> --}}
+
+    <script>
+        $(document).ready(function() {
+            var url = window.location;
+            $('ul.nav-sidebar a').filter(function() {
+                if (this.href) {
+                    return this.href == url || url.href.indexOf(this.href) == 0;
+                }
+            }).addClass('active');
+            $('ul.nav-treeview a').filter(function() {
+                if (this.href) {
+                    return this.href == url || url.href.indexOf(this.href) == 0;
+                }
+            }).parentsUntil(".nav-sidebar > .nav-treeview").addClass('menu-open').prev('a').addClass('active');
+        });
+    </script>
 </body>
 
 </html>
