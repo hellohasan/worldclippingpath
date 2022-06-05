@@ -3,14 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>{{ config('app.name') }}</title>
+    <title>{{ isset($page_title) ? $page_title . ' - ' : '' }} {{ config('app.name') }}</title>
+
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link href="{{ mix('css/backend.css') }}" rel="stylesheet">
+    @stack('styles')
 </head>
 
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="hold-transition sidebar-mini layout-navbar-fixed">
     <div class="wrapper">
         <!-- Main Header -->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -20,7 +22,6 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
             </ul>
-
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown user-menu">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
@@ -50,28 +51,13 @@
         </nav>
 
         <!-- Left side column. contains the logo and sidebar -->
-        @include('layouts.sidebar')
+        @include('layouts.partials.sidebar')
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-            <div class="content-header">
-                <div class="container-fluid">
-                    <div class="row mb-2">
-                        <div class="col-sm-6">
-                            <h1 class="m-0">{{ $page_title }}</h1>
-                        </div>
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">{{ $page_title }}</li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <section class="content">
-                @yield('content')
-            </section>
+            @include('backend.partials.__breadcrumb', ['page_title' => $page_title])
+            @include('backend.partials.__validation_error')
+            @yield('content')
         </div>
 
         <!-- Main Footer -->
@@ -83,9 +69,8 @@
 
     @include('sweetalert::alert')
     <script src="{{ mix('js/backend.js') }}"></script>
-    {{-- <script src="{{ asset('backend/plugins/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('backend/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('backend/dist/js/adminlte.min.js') }}"></script> --}}
+
+    @stack('scripts')
 
     <script>
         $(document).ready(function() {
