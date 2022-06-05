@@ -23,9 +23,14 @@ class BasicSettingController extends Controller
     public function updateBasicContent(Request $request)
     {
         $data = $request->validate([
-            'title' => 'required|email',
+            'title'    => 'required|email',
+            'timezone' => 'required',
         ]);
 
-        dd($request);
+        /* CustomHelper::changeEnv([
+        'APP_NAME' => request('title'),
+        ]); */
+
+        return redirect()->back()->withToastSuccess('Basic Settings Updated.');
     }
 }

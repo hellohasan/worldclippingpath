@@ -17070,6 +17070,83 @@
      
 }
 
+    namespace jessedp\Timezones\Facades { 
+            /**
+     * Timezones facade.
+     *
+     * @author jessedp <jessedp@gmail.com>
+     */ 
+        class Timezones {
+                    /**
+         * Format to display timezones.
+         *
+         * @param string $timezone
+         * @param string $region
+         * @return array 
+         * @static 
+         */ 
+        public static function formatTimezone($timezone, $region)
+        {
+                        return \jessedp\Timezones\Timezones::formatTimezone($timezone, $region);
+        }
+                    /**
+         * Create a timezone HTML select element for form.
+         *
+         * @param string $name the name/id to be used for the element
+         * @param string $selected selected option, defaults to UTC
+         * @param array $opts various options to set, including:
+         *      @subparam array $attr key=>value pairs of attributes to apply to the select element
+         *      @subparam bool $with_regions whether or not to do region grouping (default=false)
+         *      @subparam array $regions the regions to include, one or more of: Africa, America, Antarctica,
+         *                                    Arctic, Asia, Atlantic, Australia, Europe, Indian, Pacific
+         * @return string 
+         * @static 
+         */ 
+        public static function create($name, $selected = 'UTC', $opts = [])
+        {
+                        return \jessedp\Timezones\Timezones::create($name, $selected, $opts);
+        }
+                    /**
+         * Create a timezone array.
+         *
+         * @return mixed 
+         * @static 
+         */ 
+        public static function toArray()
+        {
+                        return \jessedp\Timezones\Timezones::toArray();
+        }
+                    /**
+         * 
+         *
+         * @param int $timestamp
+         * @param string $timezone
+         * @param string $format
+         * @return string 
+         * @static 
+         */ 
+        public static function convertFromUTC($timestamp, $timezone, $format = 'Y-m-d H:i:s')
+        {
+                        return \jessedp\Timezones\Timezones::convertFromUTC($timestamp, $timezone, $format);
+        }
+                    /**
+         * Convert a timestamp to UTC.
+         *
+         * @param int $timestamp
+         * @param string $timezone
+         * @param string $format
+         * @return string 
+         * @static 
+         */ 
+        public static function convertToUTC($timestamp, $timezone, $format = 'Y-m-d H:i:s')
+        {
+                        return \jessedp\Timezones\Timezones::convertToUTC($timestamp, $timezone, $format);
+        }
+         
+    }
+     
+}
+
     namespace Collective\Html { 
             /**
      * 
@@ -22911,6 +22988,7 @@ namespace  {
             class Validator extends \Illuminate\Support\Facades\Validator {}
             class View extends \Illuminate\Support\Facades\View {}
             class Debugbar extends \Barryvdh\Debugbar\Facades\Debugbar {}
+            class Timezones extends \jessedp\Timezones\Facades\Timezones {}
             class Form extends \Collective\Html\FormFacade {}
             class Html extends \Collective\Html\HtmlFacade {}
             class Alert extends \RealRashid\SweetAlert\Facades\Alert {}
