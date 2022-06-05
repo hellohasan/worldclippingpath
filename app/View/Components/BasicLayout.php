@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class ContentCard extends Component
+class BasicLayout extends Component
 {
     /**
      * @var mixed
@@ -15,14 +15,19 @@ class ContentCard extends Component
      */
     public $type;
     /**
+     * @var mixed
+     */
+    public $icon;
+    /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($title, $type = 'secondary')
+    public function __construct($title, $type = 'secondary', $icon = null)
     {
         $this->title = $title;
         $this->type = $type;
+        $this->icon = $icon;
     }
 
     /**
@@ -32,6 +37,6 @@ class ContentCard extends Component
      */
     public function render()
     {
-        return view('components.content-card');
+        return view('components.basic-layout');
     }
 }
