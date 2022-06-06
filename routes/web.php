@@ -24,8 +24,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('manage-profile', [ProfileController::class, 'manageProfile'])->name('manage-profile');
         Route::post('manage-profile', [ProfileController::class, 'updateProfile'])->name('update-profile');
 
-        /* Route::get('manage-password', 'DashboardController@managePassword')->name('manage-password');
-        Route::post('manage-password', 'DashboardController@updatePassword')->name('update-password'); */
+        Route::get('manage-password', [ProfileController::class, 'managePassword'])->name('manage-password');
+        Route::post('manage-password', [ProfileController::class, 'updatePassword'])->name('update-password');
 
         Route::get('basic-content', [BasicSettingController::class, 'basicContent'])->name('basic-content');
         Route::post('basic-content', [BasicSettingController::class, 'updateBasicContent'])->name('update-basic-content');

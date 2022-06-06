@@ -52,7 +52,14 @@
 <li class="nav-item">
     <a href="{{ route('manage-profile') }}" class="nav-link">
         <i class="nav-icon fas fa-user-edit"></i>
-        <p>Manage Profile</p>
+        <p>Edit Profile</p>
+    </a>
+</li>
+
+<li class="nav-item">
+    <a href="{{ route('manage-password') }}" class="nav-link">
+        <i class="nav-icon fas fa-lock-open"></i>
+        <p>Update Password</p>
     </a>
 </li>
 
