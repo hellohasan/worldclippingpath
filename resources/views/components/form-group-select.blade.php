@@ -2,8 +2,11 @@
     <label for="{{ $name }}">{{ $label }}</label>
     <select id="{{ $name }}" name="{{ $name }}" class="form-control select2 @error($name) is-invalid @enderror" data-placeholder="Select {{ $label }}">
         <option></option>
-        {{ $slot }}
+        @foreach ($options as $value => $label)
+            <option {!! $isSelected($value) ? 'selected="selected"' : '' !!} value="{{ $value }}">{{ $label }}</option>
+        @endforeach
     </select>
+
     @error($name)
         <span class="invalid-feedback" role="alert">{{ $message }}</span>
     @enderror

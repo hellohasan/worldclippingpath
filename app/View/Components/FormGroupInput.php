@@ -44,23 +44,12 @@ class FormGroupInput extends Component
         $this->name = $name;
         $this->label = $label;
         $this->type = $type;
-        $this->value = $value;
+        $this->value = old($name,$value);
         $this->col = $col;
         $this->required = $required;
         $this->readonly = $readonly;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getValue()
-    {
-        if ($this->value == null) {
-            return old($this->name);
-        }
-
-        return $this->value;
-    }
 
     /**
      * @return mixed

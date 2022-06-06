@@ -2,7 +2,7 @@
     <label for="{{ $name }}">{{ $label }}</label>
     <input id="{{ $name }}"
            name="{{ $name }}"
-           value="{{ $getValue() }}"
+           value="{{ $value }}"
            type="{{ $getType }}"
            class="form-control @error($name) is-invalid @enderror"
            @if ($required) required @endif

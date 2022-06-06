@@ -1,7 +1,7 @@
 @extends('layouts.backend')
 
 @section('content')
-    <x-content-card :title="$page_title">
+    <x-basic-layout :title="$page_title">
 
         <x-form-post :action="route('update-basic-content')">
             <div class="form-row">
@@ -9,11 +9,7 @@
             </div>
 
             <div class="form-row">
-                <x-form-group-select col="col-md-12" label="Name" name="title2">
-                    <option>hasan </option>
-                    <option @selected(old('title2') == 'Hosen')>Hosen </option>
-                    <option>Himu</option>
-                </x-form-group-select>
+                <x-form-group-select col="col-md-12" label="Name" name="title2" :options="$countries" selected=""></x-form-group-select>
             </div>
 
             <div class="form-row">
@@ -22,5 +18,5 @@
 
             <x-form-group-button>Update Basic Setting</x-form-group-button>
         </x-form-post>
-    </x-content-card>
+    </x-basic-layout>
 @endsection

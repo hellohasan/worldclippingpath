@@ -12,15 +12,15 @@ class FormGroupSelect extends Component
     /**
      * @var mixed
      */
-    public $type;
-    /**
-     * @var mixed
-     */
     public $label;
     /**
      * @var mixed
      */
-    public $value;
+    public $options;
+    /**
+     * @var mixed
+     */
+    public $selected;
     /**
      * @var mixed
      */
@@ -30,37 +30,22 @@ class FormGroupSelect extends Component
      *
      * @return void
      */
-    public function __construct($name, $label, $type = null, $value = null, $col = null)
+    public function __construct(string $name, string $label, string $selected = null, string $col = null, array $options)
     {
         $this->name = $name;
         $this->label = $label;
-        $this->type = $type;
-        $this->value = $value;
         $this->col = $col;
+        $this->options = $options;
+        $this->selected = old($name, $selected);
     }
 
     /**
+     * @param string $optionName
      * @return mixed
      */
-    public function getValue()
+    public function isSelected(string $optionName): bool
     {
-        if ($this->value == null) {
-            return old($this->name);
-        }
-
-        return $this->value;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getType()
-    {
-        if ($this->type == null) {
-            return 'text';
-        }
-
-        return $this->type;
+        return $optionName === $this->selected;
     }
 
     public function render()
