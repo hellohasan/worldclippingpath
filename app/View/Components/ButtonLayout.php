@@ -4,20 +4,16 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class FormGroupButton extends Component
+class ButtonLayout extends Component
 {
     /**
      * @var mixed
      */
+    public $title;
+    /**
+     * @var mixed
+     */
     public $type;
-    /**
-     * @var mixed
-     */
-    public $col;
-    /**
-     * @var mixed
-     */
-    public $btnClass;
     /**
      * @var mixed
      */
@@ -27,17 +23,31 @@ class FormGroupButton extends Component
      */
     public $btnText;
     /**
+     * @var mixed
+     */
+    public $btnIcon;
+    /**
+     * @var mixed
+     */
+    public $btnRoute;
+    /**
+     * @var mixed
+     */
+    public $btnClass;
+    /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($btnText, $col = null, $btnClass = 'btn-primary', $icon = 'fas fa-paper-plane', $type = 'submit')
+    public function __construct($title, $btnText, $btnIcon, $btnRoute, $btnClass = "success", $type = 'secondary', $icon = null)
     {
+        $this->title = $title;
         $this->type = $type;
-        $this->col = $col;
-        $this->btnClass = $btnClass;
         $this->icon = $icon;
         $this->btnText = $btnText;
+        $this->btnIcon = $btnIcon;
+        $this->btnClass = $btnClass;
+        $this->btnRoute = $btnRoute;
     }
 
     /**
@@ -47,6 +57,6 @@ class FormGroupButton extends Component
      */
     public function render()
     {
-        return view('components.form-group-button');
+        return view('components.button-layout');
     }
 }

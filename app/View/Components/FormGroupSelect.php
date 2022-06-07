@@ -30,7 +30,7 @@ class FormGroupSelect extends Component
      *
      * @return void
      */
-    public function __construct(string $name, string $label, string $selected = null, string $col = null, array $options)
+    public function __construct(string $name, string $label, string $selected = null, string $col = null, $options)
     {
         $this->name = $name;
         $this->label = $label;

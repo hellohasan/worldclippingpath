@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\Settings\BasicSettingController;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -21,11 +22,11 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::group(['prefix' => 'settings'], function () {
 
-        Route::get('manage-profile', [ProfileController::class, 'manageProfile'])->name('manage-profile');
-        Route::post('manage-profile', [ProfileController::class, 'updateProfile'])->name('update-profile');
+        Route::get('edit-profile', [ProfileController::class, 'manageProfile'])->name('edit-profile');
+        Route::post('edit-profile', [ProfileController::class, 'updateProfile'])->name('update-profile');
 
-        Route::get('manage-password', [ProfileController::class, 'managePassword'])->name('manage-password');
-        Route::post('manage-password', [ProfileController::class, 'updatePassword'])->name('update-password');
+        Route::get('change-password', [ProfileController::class, 'managePassword'])->name('change-password');
+        Route::post('change-password', [ProfileController::class, 'updatePassword'])->name('update-password');
 
         Route::get('basic-content', [BasicSettingController::class, 'basicContent'])->name('basic-content');
         Route::post('basic-content', [BasicSettingController::class, 'updateBasicContent'])->name('update-basic-content');
@@ -33,6 +34,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('logo-favicon', [BasicSettingController::class, 'logoFavicon'])->name('logo-favicon');
         Route::post('logo-favicon', [BasicSettingController::class, 'updateLogoFavicon'])->name('update-logo-favicon');
     });
+
+    Route::resource('users', UserController::class);
 
     Route::get('test-blade', TestController::class)->name('test-blade');
 

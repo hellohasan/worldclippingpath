@@ -1,6 +1,6 @@
 <div class="modal fade" id="DelModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content" >
+        <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title" id="myModalLabel2"><i class='fa fa-trash'></i> Delete !</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -11,7 +11,7 @@
                 <strong>Are you sure you want to Delete ?</strong>
             </div>
             <div class="modal-footer">
-                <form action="{{$route}}" method="post" id="deleteForm">
+                <form action="#" method="post" id="deleteForm">
                     {!! csrf_field() !!}
                     {!! method_field('DELETE') !!}
                     <input type="hidden" name="id" id="delete_id" class="delete_id" value="0">
@@ -22,4 +22,3 @@
         </div>
     </div>
 </div>
-

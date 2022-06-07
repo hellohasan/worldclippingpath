@@ -40,6 +40,12 @@ class SuperAdminRolePermissionSeeder extends Seeder
             'permission-edit',
             'permission-update',
             'permission-delete',
+            'users',
+            'users-create',
+            'users-store',
+            'users-edit',
+            'users-update',
+            'users-destroy',
         ];
 
         foreach ($permissions as $permission) {

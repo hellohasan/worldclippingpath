@@ -19,8 +19,8 @@
                 </li>
                 <!-- Menu Footer-->
                 <li class="user-footer d-flex justify-content-around">
-                    <a href="{{ route('manage-profile') }}" class="btn btn-default btn-flat">Profile</a>
-                    <a href="{{ route('manage-password') }}" class="btn btn-default btn-flat">Password</a>
+                    <a href="{{ route('edit-profile') }}" class="btn btn-default btn-flat">Profile</a>
+                    <a href="{{ route('change-password') }}" class="btn btn-default btn-flat">Password</a>
                     <a href="#" class="btn btn-default btn-flat" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Sign out</a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf

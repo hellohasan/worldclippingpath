@@ -24,10 +24,10 @@
                                         <td>{{ $permission->id }}</td>
                                         <td>{{ $permission->name }}</td>
                                         <td>
-                                            <a class="btn btn-info btn-xs bold uppercase" href="{{ route('permissions.show', $permission->id) }}"><i class="fa fa-eye"></i> Show</a>
+                                            <x-show-button :route="route('permissions.show', $permission->id)" />
                                             @role('Super Admin')
-                                                <a class="btn btn-primary btn-xs bold uppercase" href="{{ route('permissions.edit', $permission->id) }}"><i class="fa fa-edit"></i> Edit</a>
-                                                {!! Form::button('<i class="fa fa-trash"></i> Delete', ['class' => 'btn btn-danger btn-xs bold uppercase delete_button', 'data-toggle' => 'modal', 'data-target' => '#DelModal', 'data-id' => $permission->id]) !!}
+                                                <x-edit-button :route="route('permissions.edit', $permission->id)" />
+                                                <x-delete-button :id="$permission->id" />
                                             @endrole
                                         </td>
                                     </tr>
@@ -40,9 +40,9 @@
             </div>
         </div>
     </section>
-    {{-- @include('backend.partials.__deleteModal', ['route' => route('permissions.destroy', $permission->id)]) --}}
+    @include('backend.partials.__deleteModal')
 @stop
-@section('script')
+@pushOnce('scripts')
     <script>
         $(document).ready(function() {
             $(document).on("click", '.delete_button', function(e) {
@@ -54,4 +54,4 @@
             });
         });
     </script>
-@stop
+@endpushOnce

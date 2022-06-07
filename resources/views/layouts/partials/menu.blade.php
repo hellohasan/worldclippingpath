@@ -8,7 +8,7 @@
 
 
 <li class="nav-item has-treeview">
-    <a class="nav-link">
+    <a role="button" class="nav-link">
         <i class="nav-icon fas fa-cogs"></i>
         <p>Basic Setting<i class="right fas fa-angle-left"></i></p>
     </a>
@@ -29,7 +29,7 @@
 </li>
 
 <li class="nav-item has-treeview">
-    <a class="nav-link">
+    <a role="button" class="nav-link">
         <i class="nav-icon fas fa-tachometer-alt"></i>
         <p>Role & Permission<i class="right fas fa-angle-left"></i></p>
     </a>
@@ -49,17 +49,42 @@
     </ul>
 </li>
 
+<li class="nav-item has-treeview">
+    <a role="button" class="nav-link">
+        <i class="nav-icon fas fa-users"></i>
+        <p>Manage Users<i class="right fas fa-angle-left"></i></p>
+    </a>
+    <ul class="nav nav-treeview">
+        @can('users-create')
+            <li class="nav-item">
+                <a href="{{ route('users.create') }}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Create User</p>
+                </a>
+            </li>
+        @endcan
+        @can('users')
+            <li class="nav-item">
+                <a href="{{ route('users.index') }}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>User List</p>
+                </a>
+            </li>
+        @endcan
+    </ul>
+</li>
+
 <li class="nav-item">
-    <a href="{{ route('manage-profile') }}" class="nav-link">
+    <a href="{{ route('edit-profile') }}" class="nav-link">
         <i class="nav-icon fas fa-user-edit"></i>
         <p>Edit Profile</p>
     </a>
 </li>
 
 <li class="nav-item">
-    <a href="{{ route('manage-password') }}" class="nav-link">
+    <a href="{{ route('change-password') }}" class="nav-link">
         <i class="nav-icon fas fa-lock-open"></i>
-        <p>Update Password</p>
+        <p>Change Password</p>
     </a>
 </li>
 

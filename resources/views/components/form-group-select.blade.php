@@ -1,9 +1,9 @@
 <div class="form-group {{ $col }}">
     <label for="{{ $name }}">{{ $label }}</label>
-    <select id="{{ $name }}" name="{{ $name }}" class="form-control select2 @error($name) is-invalid @enderror" data-placeholder="Select {{ $label }}">
+    <select id="{{ $name }}" name="{{ $name }}" class="form-control select2 @error($name) is-invalid @enderror" data-placeholder="{{ $label }}">
         <option></option>
-        @foreach ($options as $value => $label)
-            <option {!! $isSelected($value) ? 'selected="selected"' : '' !!} value="{{ $value }}">{{ $label }}</option>
+        @foreach ($options as $value => $option)
+            <option {!! $isSelected($option['id']) ? 'selected="selected"' : '' !!} value="{{ $option['id'] }}">{{ $option['text'] }}</option>
         @endforeach
     </select>
 

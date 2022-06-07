@@ -20,7 +20,7 @@
                 <x-form-group-input col="col-md-4" name="currency" label="Web Currency" :value="$basic->currency" />
                 <x-form-group-input col="col-md-4" name="symbol" label="Currency Symbol" :value="$basic->symbol" />
             </div>
-            <x-form-group-button>Update Basic Setting</x-form-group-button>
+            <x-form-group-button btnText="Update Basic Setting"></x-form-group-button>
         </x-form-post>
     </x-basic-layout>
 @endsection

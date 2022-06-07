@@ -43,12 +43,12 @@
             var url = window.location;
             $('ul.nav-sidebar a').filter(function() {
                 if (this.href) {
-                    return this.href == url || url.href.indexOf(this.href) == 0;
+                    return this.href == url;
                 }
             }).addClass('active');
             $('ul.nav-treeview a').filter(function() {
                 if (this.href) {
-                    return this.href == url || url.href.indexOf(this.href) == 0;
+                    return this.href == url;
                 }
             }).parentsUntil(".nav-sidebar > .nav-treeview").addClass('menu-open').prev('a').addClass('active');
         });
