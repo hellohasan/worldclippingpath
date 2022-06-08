@@ -41,6 +41,5 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::resource('roles', RoleController::class);
     Route::resource('permissions', PermissionController::class);
-    //Route::resource('users', UserController::class);
 
 });

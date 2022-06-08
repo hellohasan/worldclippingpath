@@ -30,7 +30,7 @@
                                                     <a class="btn btn-primary btn-xs bold uppercase" href="{{ route('roles.edit', $role->id) }}"><i class="fa fa-edit"></i> Edit</a>
                                                 @endcan
                                                 @can('role-delete')
-                                                    {!! Form::button('<i class="fa fa-trash"></i> Delete', ['class' => 'btn btn-danger btn-xs bold uppercase delete_button', 'data-toggle' => 'modal', 'data-target' => '#DelModal', 'data-id' => $role->id]) !!}
+                                                    <x-delete-button :id="$role->id" />
                                                 @endcan
                                             @endif
                                         </td>
@@ -44,15 +44,18 @@
             </div>
         </div>
     </section>
-    {{-- @include('backend.partials.__deleteModal',['route'=>route('roles.destroy', $role->id)]) --}}
+    @include('backend.partials.__deleteModal')
 @stop
-@section('script')
+@pushOnce('scripts')
     <script>
         $(document).ready(function() {
             $(document).on("click", '.delete_button', function(e) {
                 var id = $(this).data('id');
+                var url = '{{ route('roles.destroy', ':id') }}';
+                url = url.replace(':id', id);
+                $("#deleteForm").attr("action", url);
                 $("#delete_id").val(id);
             });
         });
     </script>
-@stop
+@endpushOnce
