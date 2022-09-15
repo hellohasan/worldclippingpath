@@ -5,6 +5,7 @@ use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\Settings\BasicSettingController;
+use App\Http\Controllers\Settings\ServerInformationController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -42,4 +43,5 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('roles', RoleController::class);
     Route::resource('permissions', PermissionController::class);
 
+    Route::get('system-information', [ServerInformationController::class, 'getInformation'])->name('system-information');
 });

@@ -11,7 +11,7 @@
     @stack('styles')
 </head>
 
-<body class="hold-transition sidebar-mini layout-navbar-fixed">
+<body class="hold-transition sidebar-mini layout-navbar-fixed layout-footer-fixed">
     <div class="wrapper">
         <!-- Main Header -->
         @include('layouts.partials.navbar')
@@ -42,14 +42,12 @@
         $(document).ready(function() {
             var url = window.location;
             $('ul.nav-sidebar a').filter(function() {
-                if (this.href) {
+                if (this.href)
                     return this.href == url;
-                }
             }).addClass('active');
             $('ul.nav-treeview a').filter(function() {
-                if (this.href) {
+                if (this.href)
                     return this.href == url;
-                }
             }).parentsUntil(".nav-sidebar > .nav-treeview").addClass('menu-open').prev('a').addClass('active');
         });
     </script>

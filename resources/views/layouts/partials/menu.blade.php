@@ -6,6 +6,7 @@
     </a>
 </li>
 
+<li class="nav-header">General Settings</li>
 
 <li class="nav-item has-treeview">
     <a role="button" class="nav-link">
@@ -26,6 +27,13 @@
             </a>
         </li>
     </ul>
+</li>
+
+<li class="nav-item">
+    <a href="{{ route('system-information') }}" class="nav-link">
+        <i class="nav-icon fas fa-server"></i>
+        <p>System Information</p>
+    </a>
 </li>
 
 <li class="nav-item has-treeview">
@@ -73,21 +81,18 @@
         @endcan
     </ul>
 </li>
-
 <li class="nav-item">
     <a href="{{ route('edit-profile') }}" class="nav-link">
         <i class="nav-icon fas fa-user-edit"></i>
         <p>Edit Profile</p>
     </a>
 </li>
-
 <li class="nav-item">
     <a href="{{ route('change-password') }}" class="nav-link">
         <i class="nav-icon fas fa-lock-open"></i>
         <p>Change Password</p>
     </a>
 </li>
-
 <li class="nav-item">
     <a href="##" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
         <i class="nav-icon fas fa-sign-out-alt"></i>
