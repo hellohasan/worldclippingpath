@@ -33,17 +33,15 @@
                                 <a href="#" class="btn btn-danger fileinput-exists bold uppercase" data-dismiss="fileinput"><i class="fas fa-trash"></i> Remove</a>
                             </div>
                         </div> <br>
-
                         <code>Image must me less then 500kb and it will resize 215X215 px.</code>
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-md-8 offset-2">
-                        <button type="submit" class="btn btn-primary bg-softwarezon-x btn-lg btn-block"><i class="ft-navigation"></i> Update Now</button>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block"><i class="ft-navigation"></i> Update Now</button>
                     </div>
                 </div>
             </form>
-
         </x-form-post>
     </x-basic-layout>
 @endsection

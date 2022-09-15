@@ -40,7 +40,8 @@ class ProfileController extends Controller
             $image = $request->file('avatar');
             $filename = time() . '.' . $image->getClientOriginalExtension();
             $originalAvatar = $user->getRawOriginal('avatar');
-            Image::make($image)->resize(215, 215)->save(public_path("storage/users/{$filename}"));
+            $location = public_path("storage/users/$filename");
+            Image::make($image)->save($location);
             if ($originalAvatar != 'avatar.png') {
                 File::delete(public_path("storage/users/{$originalAvatar}"));
             }

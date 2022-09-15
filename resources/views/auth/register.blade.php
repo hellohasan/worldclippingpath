@@ -55,6 +55,13 @@
                         </div>
                     </div>
 
+                    <div class="recaptcha mb-2">
+                        {!! RecaptchaV3::field('register', 'recaptcha') !!}
+                        @error('recaptcha')
+                            <span class="small text-danger mb-2 text-bold">{{ $message }}</span>
+                        @enderror
+                    </div>
+
                     <div class="row">
                         <div class="col-8">
                             <div class="icheck-primary">

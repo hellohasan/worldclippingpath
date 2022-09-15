@@ -36,6 +36,13 @@
                         @enderror
                     </div>
 
+                    <div class="recaptcha mb-2">
+                        {!! RecaptchaV3::field('login', 'recaptcha') !!}
+                        @error('recaptcha')
+                            <span class="small text-danger mb-2">{{ $message }}</span>
+                        @enderror
+                    </div>
+
                     <div class="row">
                         <div class="col-8">
                             <div class="icheck-primary">
@@ -43,11 +50,9 @@
                                 <label for="remember">Remember Me</label>
                             </div>
                         </div>
-
                         <div class="col-4">
                             <button type="submit" class="btn btn-primary btn-block">Sign In</button>
                         </div>
-
                     </div>
                 </form>
 

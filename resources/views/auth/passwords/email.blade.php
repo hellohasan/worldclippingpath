@@ -30,6 +30,13 @@
                         @endif
                     </div>
 
+                    <div class="recaptcha mb-2">
+                        {!! RecaptchaV3::field('forget_password', 'recaptcha') !!}
+                        @error('recaptcha')
+                            <span class="small text-danger mb-2">{{ $message }}</span>
+                        @enderror
+                    </div>
+
                     <div class="row">
                         <div class="col-12">
                             <button type="submit" class="btn btn-primary btn-block">Send Password Reset Link</button>
