@@ -30,19 +30,19 @@
 
 <li class="nav-item has-treeview">
     <a role="button" class="nav-link">
-        <i class="nav-icon fas fa-tachometer-alt"></i>
+        <i class="nav-icon fas fa-fingerprint"></i>
         <p>Role & Permission<i class="right fas fa-angle-left"></i></p>
     </a>
     <ul class="nav nav-treeview">
         <li class="nav-item">
             <a href="{{ route('roles.index') }}" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
+                <i class="fas fa-user-secret nav-icon"></i>
                 <p>Manage Role</p>
             </a>
         </li>
         <li class="nav-item">
             <a href="{{ route('permissions.index') }}" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
+                <i class="fas fa-shield-alt nav-icon"></i>
                 <p>Manage Permission</p>
             </a>
         </li>

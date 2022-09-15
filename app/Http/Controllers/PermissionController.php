@@ -124,9 +124,7 @@ class PermissionController extends Controller
     public function destroy($id)
     {
         $permission = Permission::findOrFail($id);
-        $rolePermissions = DB::table("role_has_permissions")->where("permission_id", $id)
-            ->pluck('role_id')
-            ->toArray();
+        $rolePermissions = DB::table("role_has_permissions")->where("permission_id", $id)->pluck('role_id')->toArray();
         foreach ($rolePermissions as $role) {
             $r = Role::findById($role);
             $r->revokePermissionTo($permission);
