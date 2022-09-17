@@ -20,27 +20,35 @@
                         <td>{{ $timeZone }}</td>
                     </tr>
                     <tr>
-                        <td>REMOTE_ADDR</td>
+                        <td>DATABASE</td>
+                        <td>{{ $database[6]->Value }}</td>
+                    </tr>
+                    <tr>
+                        <td>INNODB VERSION</td>
+                        <td>{{ $database[1]->Value }}</td>
+                    </tr>
+                    <tr>
+                        <td>REMOTE ADDR</td>
                         <td>{{ $server['REMOTE_ADDR'] }}</td>
                     </tr>
                     <tr>
-                        <td>REMOTE_PORT</td>
+                        <td>REMOTE PORT</td>
                         <td>{{ $server['REMOTE_PORT'] }}</td>
                     </tr>
                     <tr>
-                        <td>SERVER_ADDR</td>
+                        <td>SERVER ADDR</td>
                         <td>{{ $server['SERVER_ADDR'] }}</td>
                     </tr>
                     <tr>
-                        <td>SERVER_PORT</td>
+                        <td>SERVER PORT</td>
                         <td>{{ $server['SERVER_PORT'] }}</td>
                     </tr>
                     <tr>
-                        <td>SERVER_NAME</td>
+                        <td>SERVER NAME</td>
                         <td>{{ $server['SERVER_NAME'] }}</td>
                     </tr>
                     <tr>
-                        <td>SERVER_SOFTWARE</td>
+                        <td>SERVER SOFTWARE</td>
                         <td>{{ $server['SERVER_SOFTWARE'] }}</td>
                     </tr>
                 </tbody>

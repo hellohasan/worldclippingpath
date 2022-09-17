@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Settings;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class ServerInformationController extends Controller
 {
@@ -18,7 +19,7 @@ class ServerInformationController extends Controller
         $data['server'] = $_SERVER;
         $data['php'] = phpversion();
         $data['timeZone'] = config('app.timezone');
-        //dd($data);
+        $data['database'] = DB::select(DB::raw('SHOW VARIABLES LIKE "%version%"'));
 
         return view('backend.settings.system-information', $data);
     }
