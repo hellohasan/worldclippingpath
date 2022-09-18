@@ -25,7 +25,7 @@ class PermissionController extends Controller
     public function index()
     {
         $data['page_title'] = 'Manage Permission';
-        $data['permissions'] = DB::table('permissions')->get();
+        $data['permissions'] = DB::table('permissions')->orderByDesc('id')->get();
 
         return view('permissions.index', $data);
     }
@@ -53,12 +53,25 @@ class PermissionController extends Controller
     {
         $request->validate([
             'name' => 'required|unique:permissions,name',
+            'role' => 'required|array',
         ]);
-        $permission = Permission::create(['name' => $request->input('name')]);
-        $permission->syncRoles($request->input('role'));
 
-        return redirect()->back()
-            ->withToastSuccess('Permission Create Successfully');
+        $roles = $request->input('role');
+        $crud = ['', '-create', '-store', '-edit', '-update', '-destroy'];
+
+        $name = $request->input('name');
+        if (request('crud') == 'on') {
+            foreach ($crud as $c) {
+                $in['name'] = $name . $c;
+                $permission = Permission::create($in);
+                $permission->syncRoles($request->input('role'));
+            }
+        } else {
+            $permission = Permission::create(['name' => $request->input('name')]);
+            $permission->syncRoles($request->input('role'));
+        }
+
+        return redirect()->back()->withToastSuccess('Permission Create Successfully');
     }
 
     /**
@@ -110,8 +123,7 @@ class PermissionController extends Controller
         $permission->update(['name' => Str::slug($request->input('name'))]);
         $permission->syncRoles($request->input('role'));
 
-        return redirect()->back()
-            ->withToastSuccess('Permission Update Successfully');
+        return redirect()->back()->withToastSuccess('Permission Update Successfully');
 
     }
 
@@ -131,7 +143,6 @@ class PermissionController extends Controller
         }
         $permission->delete();
 
-        return redirect()->back()
-            ->withToastSuccess('Permission Deleted Successfully');
+        return redirect()->back()->withToastSuccess('Permission Deleted Successfully');
     }
 }

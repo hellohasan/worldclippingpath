@@ -11,13 +11,19 @@
                 <div class="card-body">
                     {!! Form::open(['route' => 'permissions.store', 'method' => 'POST']) !!}
                     <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="col-md-12">
                             <div class="form-group">
                                 <strong>Permission Name:</strong>
                                 {!! Form::text('name', null, ['placeholder' => 'Write permission name', 'class' => 'form-control']) !!}
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="col-md-12 mb-2">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" name="crud" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">Check me out for ( *-create *-store *-edit *-update *-destroy )</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
                             <div class="form-group">
                                 <strong>Assign Permission to Role:</strong>
                                 <br />
@@ -28,7 +34,7 @@
                                 @endforeach
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                        <div class="col-md-12 text-center">
                             <button type="submit" class="btn btn-primary btn-lg btn-block"><i class="fas fa-paper-plane"></i> Submit Permission</button>
                         </div>
                     </div>

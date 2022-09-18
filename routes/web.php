@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProfileController;
@@ -34,6 +35,10 @@ Route::group(['middleware' => ['auth']], function () {
 
         Route::get('logo-favicon', [BasicSettingController::class, 'logoFavicon'])->name('logo-favicon');
         Route::post('logo-favicon', [BasicSettingController::class, 'updateLogoFavicon'])->name('update-logo-favicon');
+    });
+
+    Route::group(['prefix' => 'backend'], function () {
+        Route::resource('categories', CategoryController::class)->except(['show']);
     });
 
     Route::resource('users', UserController::class);
