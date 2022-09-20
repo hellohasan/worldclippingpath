@@ -1,22 +1,18 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Table;
 
 use Illuminate\View\Component;
 
-class DeleteButton extends Component
+class Table extends Component
 {
-
     /**
      * Create a new component instance.
      *
      * @return void
      */
     public function __construct(
-        public int $id,
-        public $text = 'Delete',
-        public $modal = 'DeleteModal',
-        public $classBtn = 'delete_button',
+        public array $headers
     ){}
 
     /**
@@ -26,6 +22,6 @@ class DeleteButton extends Component
      */
     public function render()
     {
-        return view('components.delete-button');
+        return view('components.table.index');
     }
 }

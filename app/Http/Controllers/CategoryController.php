@@ -62,17 +62,6 @@ class CategoryController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -80,7 +69,11 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        $data['page_title'] = 'Edit Category';
+        $data['category'] = Category::find($id);
+
+        return view('backend.categories.edit', $data);
     }
 
     /**
@@ -92,7 +85,18 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $category = Category::findOrFail($id);
+        $request->validate([
+            'name' => 'required|unique:categories,name,' . $id,
+        ]);
+
+        $in = $request->except(['_method', '_token']);
+        $in['slug'] = Str::slug($request->input('name'));
+        $in['featured'] = $request->input('featured') == 'on' ? true : false;
+        $in['status'] = $request->input('status') == 'on' ? true : false;
+        $category->update($in);
+
+        return redirect()->back()->withToastSuccess('Category Updated Successfully.');
     }
 
     /**
@@ -103,6 +107,8 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Category::destroy($id); //ALERT: Make Sure when delete the category
+
+        return redirect()->back();
     }
 }

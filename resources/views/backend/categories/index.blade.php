@@ -1,36 +1,29 @@
 @extends('layouts.backend')
 @section('content')
     <x-button-layout :title="$page_title" icon="fas fas fa-th-large" btnText="Add Category" btnIcon="fas fa-plus" :btnRoute="route('categories.create')" :permissions="['categories.create']">
-        <table class="table table-bordered table-striped">
-            <thead>
+        <x-table :headers="['#SL', 'Name', 'Featured', 'Status', 'Action']">
+            @forelse ($categories as $key => $category)
                 <tr>
-                    <th>#SL</th>
-                    <th>Name</th>
-                    <th>Featured</th>
-                    <th>Status</th>
-                    <th>Action</th>
+                    <td>{{ ++$key }}</td>
+                    <td>{{ $category->name }}</td>
+                    <td>
+                        <x-status-badge :value="$category->featured" successText="Featured" failText="Non Featured"></x-status-badge>
+                    </td>
+                    <td>
+                        <x-status-badge :value="$category->status"></x-status-badge>
+                    </td>
+                    <td>
+                        <x-edit-button :route="route('categories.edit', $category->id)"></x-edit-button>
+                        <x-delete-button :id="$category->id"></x-delete-button>
+                    </td>
                 </tr>
-            </thead>
-            <tbody>
-                @forelse ($categories as $key => $category)
-                    <tr>
-                        <td>{{ ++$key }}</td>
-                        <td>{{ $category->name }}</td>
-                        <td>
-                            <x-status-badge :value="$category->featured" successText="Featured" failText="Non Featured"></x-status-badge>
-                        </td>
-                        <td>
-                            <x-status-badge :value="$category->status"></x-status-badge>
-                        </td>
-                        <td></td>
-                    </tr>
-                @empty
-                    <tr>
-                        <td colspan="6">No Category Found</td>
-                    </tr>
-                @endforelse
-
-            </tbody>
-        </table>
+            @empty
+                <tr>
+                    <td colspan="6">No Category Found</td>
+                </tr>
+            @endforelse
+        </x-table>
     </x-button-layout>
+
+    <x-delete-modal route="categories.destroy"></x-delete-modal>
 @endsection

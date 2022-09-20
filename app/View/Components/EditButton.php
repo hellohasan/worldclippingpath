@@ -8,18 +8,15 @@ class EditButton extends Component
 {
 
     /**
-     * @var mixed
-     */
-    public $route;
-    /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($route)
-    {
-        $this->route = $route;
-    }
+    public function __construct(
+        public $route,
+        public $text = 'Edit'
+    )
+    {}
 
     /**
      * Get the view / contents that represent the component.
