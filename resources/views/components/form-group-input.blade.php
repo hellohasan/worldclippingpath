@@ -4,6 +4,7 @@
            name="{{ $name }}"
            value="{{ $value }}"
            type="{{ $getType }}"
+           @if ($step) step="{{ $step }}" @endif
            class="form-control @error($name) is-invalid @enderror"
            @if ($required) required @endif
            @if ($readonly) readonly @endif

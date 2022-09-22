@@ -33,23 +33,27 @@ class FormGroupInput extends Component
     /**
      * @var mixed
      */
+    public $step;
+    /**
+     * @var mixed
+     */
     public $readonly;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($name, $label, $type = null, $value = null, $col = null, $required = true, $readonly = false)
+    public function __construct($name, $label, $type = null, $value = null, $col = null, $step = '', $required = true, $readonly = false)
     {
         $this->name = $name;
         $this->label = $label;
         $this->type = $type;
-        $this->value = old($name,$value);
+        $this->value = old($name, $value);
         $this->col = $col;
+        $this->step = $step;
         $this->required = $required;
         $this->readonly = $readonly;
     }
-
 
     /**
      * @return mixed

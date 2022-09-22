@@ -14,6 +14,52 @@
     </li>
 @endcan
 
+@role('Super Admin')
+    <li class="nav-item has-treeview">
+        <a role="button" class="nav-link">
+            <i class="nav-icon fas fa-server"></i>
+            <p>Services<i class="right fas fa-angle-left"></i></p>
+        </a>
+        <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <a href="{{ route('services.create') }}" class="nav-link">
+                    <i class="fas fa-plus nav-icon"></i>
+                    <p>Create Service</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('services.index') }}" class="nav-link">
+                    <i class="fas fa-list-ul nav-icon"></i>
+                    <p>Service List</p>
+                </a>
+            </li>
+        </ul>
+    </li>
+@endrole
+
+@role('Super Admin')
+    <li class="nav-item has-treeview">
+        <a role="button" class="nav-link">
+            <i class="nav-icon fas fa-images"></i>
+            <p>Service Category<i class="right fas fa-angle-left"></i></p>
+        </a>
+        <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <a href="{{ route('service-category.create') }}" class="nav-link">
+                    <i class="fas fa-plus nav-icon"></i>
+                    <p>Create New</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('service-category.index') }}" class="nav-link">
+                    <i class="fas fa-list-ul nav-icon"></i>
+                    <p>Category List</p>
+                </a>
+            </li>
+        </ul>
+    </li>
+@endrole
+
 
 <li class="nav-header">General Settings</li>
 

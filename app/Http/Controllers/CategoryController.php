@@ -13,6 +13,9 @@ class CategoryController extends Controller
     {
         $this->middleware('permission:categories', ['only' => ['index']]);
         $this->middleware('permission:categories-create', ['only' => ['create']]);
+        $this->middleware('permission:categories-store', ['only' => ['store']]);
+        $this->middleware('permission:categories-edit', ['only' => ['edit']]);
+        $this->middleware('permission:categories-destroy', ['only' => ['destroy']]);
     }
 
     /**
