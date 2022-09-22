@@ -1,5 +1,9 @@
 <div class="form-group {{ $col }}">
-    <label for="{{ $name }}">{{ $label }}:</label>
+    <label for="{{ $name }}">{{ $label }}:
+        @if ($message)
+            &nbsp;&nbsp;<code>{{ $message }}</code>
+        @endif
+    </label>
     <div class="input-group image-preview">
         <input type="text" class="form-control image-preview-filename" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
         <div class="input-group-append input-group-btn">

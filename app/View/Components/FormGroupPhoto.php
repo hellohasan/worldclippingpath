@@ -17,16 +17,21 @@ class FormGroupPhoto extends Component
     /**
      * @var mixed
      */
+    public $message;
+    /**
+     * @var mixed
+     */
     public $col;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($name, $label, $col = null)
+    public function __construct($name, $label, $col = null, $message = null)
     {
         $this->name = $name;
         $this->label = $label;
+        $this->message = $message;
         $this->col = $col;
     }
 

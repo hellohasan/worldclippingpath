@@ -1,44 +1,42 @@
 @extends('layouts.backend')
 @section('content')
-    <x-button-layout :title="$page_title" icon="fas fas fa-list-ul" btnText="Create Service" btnIcon="fas fa-plus" :btnRoute="route('service-category.create')" :permissions="['service-category-create']">
+    <x-button-layout :title="$page_title" icon="fas fas fa-list-ul" btnText="Create Service Portfolio" btnIcon="fas fa-plus" :btnRoute="route('service-portfolio.create')" :permissions="['service-portfolio-create']">
         <table class="table table-stripe table-bordered">
             <thead>
                 <tr>
                     <th>SL</th>
-                    <th width="15%">Service</th>
-                    <th width="20%">Title</th>
-                    <th width="15%">Thumbnail</th>
-                    <th width="30%">Description</th>
-                    <th width="5%">Status</th>
-                    <th width="10%">Action</th>
+                    <th>Service</th>
+                    <th>Title</th>
+                    <th>Thumbnail</th>
+                    <th>Status</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                @forelse ($categories as $key=> $category)
+                @forelse ($portfolios as $key=> $portfolio)
                     <tr>
                         <td>{{ ++$key }}</td>
-                        <td>{{ $category->service->title }}</td>
-                        <td>{{ $category->title }}</td>
+                        <td>{{ $portfolio->service->title }}</td>
+                        <td>{{ $portfolio->title }}</td>
                         <td>
                             <div id="demo1" class="cross2">
-                                <a href="#"><img src="{{ $category->getFirstMediaUrl('service-category-before', 'thumb') }}" alt="before" /></a>
-                                <a href="#"><img src="{{ $category->getFirstMediaUrl('service-category-after', 'thumb') }}" alt="after" /></a>
+                                <a href="#"><img src="{{ $portfolio->getFirstMediaUrl('service-portfolio-before', 'thumb') }}" alt="before" /></a>
+                                <a href="#"><img src="{{ $portfolio->getFirstMediaUrl('service-portfolio-after', 'thumb') }}" alt="after" /></a>
                             </div>
                         </td>
-                        <td>{{ $category->description }}</td>
                         <td>
-                            <x-status-badge :value="$category->status"></x-status-badge>
+                            <x-status-badge :value="$portfolio->status"></x-status-badge>
                         </td>
                         <td>
-                            <x-edit-button :route="route('service-category.edit', $category->id)"></x-edit-button>
-                            <x-delete-button :id="$category->id"></x-delete-button>
+                            <x-edit-button :route="route('service-portfolio.edit', $portfolio->id)"></x-edit-button>
+                            <x-delete-button :id="$portfolio->id"></x-delete-button>
                         </td>
                     </tr>
                 @empty
                 @endforelse
             </tbody>
         </table>
-        <x-delete-modal route="service-category.destroy"></x-delete-modal>
+        <x-delete-modal route="service-portfolio.destroy"></x-delete-modal>
     </x-button-layout>
 @endsection
 

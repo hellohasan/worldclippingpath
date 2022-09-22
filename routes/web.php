@@ -7,6 +7,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ServiceCategoryController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\ServicePortfolioController;
+use App\Http\Controllers\ServiceTestimonialController;
 use App\Http\Controllers\Settings\BasicSettingController;
 use App\Http\Controllers\Settings\ServerInformationController;
 use App\Http\Controllers\TestController;
@@ -42,6 +44,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::resource('categories', CategoryController::class)->except(['show']);
         Route::resource('services', ServiceController::class)->except(['show']);
         Route::resource('service-category', ServiceCategoryController::class)->except(['show']);
+        Route::resource('service-portfolio', ServicePortfolioController::class)->except(['show']);
+        Route::resource('service-testimonial', ServiceTestimonialController::class)->except(['show']);
     });
 
     Route::resource('users', UserController::class);

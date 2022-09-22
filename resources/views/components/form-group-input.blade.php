@@ -1,5 +1,9 @@
 <div class="form-group {{ $col }}">
-    <label for="{{ $name }}">{{ $label }}:</label>
+    <label for="{{ $name }}">{{ $label }}:
+        @if ($message)
+            &nbsp;&nbsp;<code>{{ $message }}</code>
+        @endif
+    </label>
     <input id="{{ $name }}"
            name="{{ $name }}"
            value="{{ $value }}"
@@ -9,6 +13,7 @@
            @if ($required) required @endif
            @if ($readonly) readonly @endif
            placeholder="{{ $label }}">
+
     @error($name)
         <span class="invalid-feedback" role="alert">{{ $message }}</span>
     @enderror

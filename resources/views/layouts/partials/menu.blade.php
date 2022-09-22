@@ -40,20 +40,66 @@
 @role('Super Admin')
     <li class="nav-item has-treeview">
         <a role="button" class="nav-link">
-            <i class="nav-icon fas fa-images"></i>
+            <i class="nav-icon fas fa-th-list"></i>
             <p>Service Category<i class="right fas fa-angle-left"></i></p>
         </a>
         <ul class="nav nav-treeview">
             <li class="nav-item">
                 <a href="{{ route('service-category.create') }}" class="nav-link">
                     <i class="fas fa-plus nav-icon"></i>
-                    <p>Create New</p>
+                    <p>Create Portfolio</p>
                 </a>
             </li>
             <li class="nav-item">
                 <a href="{{ route('service-category.index') }}" class="nav-link">
                     <i class="fas fa-list-ul nav-icon"></i>
                     <p>Category List</p>
+                </a>
+            </li>
+        </ul>
+    </li>
+@endrole
+
+@role('Super Admin')
+    <li class="nav-item has-treeview">
+        <a role="button" class="nav-link">
+            <i class="nav-icon fas fa-images"></i>
+            <p>Service Portfolio<i class="right fas fa-angle-left"></i></p>
+        </a>
+        <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <a href="{{ route('service-portfolio.create') }}" class="nav-link">
+                    <i class="fas fa-plus nav-icon"></i>
+                    <p>Create New</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('service-portfolio.index') }}" class="nav-link">
+                    <i class="fas fa-history nav-icon"></i>
+                    <p>History List</p>
+                </a>
+            </li>
+        </ul>
+    </li>
+@endrole
+
+@role('Super Admin')
+    <li class="nav-item has-treeview">
+        <a role="button" class="nav-link">
+            <i class="nav-icon fas fa-quote-left"></i>
+            <p>Service Testimonial<i class="right fas fa-angle-left"></i></p>
+        </a>
+        <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <a href="{{ route('service-testimonial.create') }}" class="nav-link">
+                    <i class="fas fa-plus nav-icon"></i>
+                    <p>Create Testimonial</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('service-testimonial.index') }}" class="nav-link">
+                    <i class="fas fa-history nav-icon"></i>
+                    <p>Testimonial List</p>
                 </a>
             </li>
         </ul>
