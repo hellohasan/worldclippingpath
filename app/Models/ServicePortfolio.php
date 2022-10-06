@@ -50,5 +50,10 @@ class ServicePortfolio extends Model implements HasMedia
             ->registerMediaConversions(function (Media $media) {
                 $this->addMediaConversion('thumb')->width(100);
             });
+
+        $this->addMediaCollection('service-portfolio')->singleFile()
+            ->registerMediaConversions(function (Media $media) {
+                $this->addMediaConversion('thumb')->width(100);
+            });
     }
 }

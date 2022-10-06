@@ -6,6 +6,9 @@
         </li>
     </ul>
     <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a href="{{ route('welcome') }}" target="_blank" class="btn btn-success">View Website</a>
+        </li>
         <li class="nav-item dropdown user-menu">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
                 <img src="{{ Auth::user()->avatar }}" class="user-image img-circle elevation-2" alt="User Image">

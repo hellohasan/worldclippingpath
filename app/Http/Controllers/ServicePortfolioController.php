@@ -138,6 +138,13 @@ class ServicePortfolioController extends Controller
                 ->withResponsiveImages()
                 ->toMediaCollection('service-portfolio-after');
         }
+        if ($request->hasFile('both_photo')) {
+            $filename = $slug . time() . '_both.' . $request->file('both_photo')->getClientOriginalExtension();
+            $servicePortfolio->addMediaFromRequest('both_photo')
+                ->usingFileName($filename)
+                ->withResponsiveImages()
+                ->toMediaCollection('service-portfolio');
+        }
 
         return redirect()->back()->withToastSuccess('Portfolio Update Successfully');
     }

@@ -19,10 +19,7 @@
                         <td>{{ $portfolio->service->title }}</td>
                         <td>{{ $portfolio->title }}</td>
                         <td>
-                            <div id="demo1" class="cross2">
-                                <a href="#"><img src="{{ $portfolio->getFirstMediaUrl('service-portfolio-before', 'thumb') }}" alt="before" /></a>
-                                <a href="#"><img src="{{ $portfolio->getFirstMediaUrl('service-portfolio-after', 'thumb') }}" alt="after" /></a>
-                            </div>
+                            <img src="{{ $portfolio->getFirstMediaUrl('service-portfolio', 'thumb') }}" alt="both" />
                         </td>
                         <td>
                             <x-status-badge :value="$portfolio->status"></x-status-badge>
@@ -39,25 +36,3 @@
         <x-delete-modal route="service-portfolio.destroy"></x-delete-modal>
     </x-button-layout>
 @endsection
-
-@push('styles')
-    <link rel="stylesheet" href="{{ asset('plugin/cross2/css/jquery.cross2.min.css') }}">
-@endpush
-
-@push('scripts')
-    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/jquery.event.drag/2.2/jquery.event.drag.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.12/jquery.mousewheel.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script src="{{ asset('plugin/cross2/js/jquery.cross2.min.js') }}"></script>
-    <script>
-        $(document).ready(function() {
-            $('.cross2').cross2({
-                clickEnabled: true,
-                easing: 'easeInBack',
-                animationDuration: 500,
-                mousewheelEnabled: true
-            });
-        });
-    </script>
-@endpush

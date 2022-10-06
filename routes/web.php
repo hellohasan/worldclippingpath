@@ -17,6 +17,8 @@ use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
+Route::get('how-we-work', [WelcomeController::class, 'howToWork'])->name('how-to-work');
+Route::get('free-trial', [WelcomeController::class, 'freeTrial'])->name('free-trial');
 
 Auth::routes();
 
